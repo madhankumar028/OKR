@@ -1,0 +1,13 @@
+$color--black   : #333333;
+$color--white   : #ffffff;
+
+/* 
+* ink colors (with variations only for black and white)
+*/
+$white--high      : rgba($color--white, 1);
+$white--medium    : rgba($color--white, 0.91);
+$white--disabled  : rgba($color--white, 0.64);
+
+$black--high      : rgba($color--black, 0.85);
+$black--medium    : rgba($color--black, 0.64);
+$black--disabled  : rgba($color--black, 0.43);

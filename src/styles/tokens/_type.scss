@@ -1,0 +1,56 @@
+////////////////////////// fontweight system /////////////////////////////
+/// @type Map
+/// @access public
+$font-weights: (
+  'regular': 400,
+  'medium' : 500,
+  'bold'   : 700,
+);
+
+/// @type Map
+/// @access public
+$breakpoint-font-size: (
+  '2xs': 10px,
+  'xs': 12px,
+  'sm': 14px,
+  'md': 16px,
+  'lg': 18px,
+  'xl': 22px,
+);
+
+/// @type Map
+/// @access public
+$breakpoint-line-height: (
+  '2xs': 13px,
+  'xs': 20px,
+  'sm': 22px,
+  'md': 24px,
+  'lg': 28px,
+  'xl': 34px,
+);
+
+///////////////// actual helper mixin ////////////////////////
+
+/// @type Mixin
+/// @param {String} $font-size
+/// @access public
+@mixin get-typography($size, $weight) {
+
+  @if map-has-key($breakpoint-font-size, $size) {
+    font-size: #{map-get($breakpoint-font-size, $size)};
+  } @else {
+    @error '#{$size} is not a valid size. Check $size is of type string or not';
+  }
+
+  @if map-has-key($breakpoint-line-height, $size) {
+    line-height: #{map-get($breakpoint-line-height, $size)};
+  } @else {
+    @error '#{$size} is not a valid size. Check $size is of type string or not';
+  }
+
+  @if map-has-key($font-weights, $weight) {
+    font-weight: #{map-get($font-weights, $weight)};
+  } @else {
+    @error '#{$weight} is not a valid weight. Check $weight is of type string or not';
+  }
+}

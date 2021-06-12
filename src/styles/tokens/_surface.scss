@@ -1,0 +1,23 @@
+$box-shadow-color: rgba(0, 0, 0, 0.24);
+
+/// box-shadow map
+$surface-shadows: (
+  '1': 0 0 0 0,
+  '2': 0 2px 4px 0,
+  '4': 0 4px 8px 0,
+  '8': 0 8px 16px 0,
+  '16': 0 16px 32px 0,
+  '24': 0 24px 48px 0,
+);
+
+/// eg: sample usage @include surface('1', null);
+/// @param {String} $level box-shadow level
+/// @param {String} $color box-shadow color
+@mixin surface($level, $color) {
+  @if map-has-key($surface-shadows, $level) {
+    box-shadow: #{map-get($surface-shadows, $level)}
+      if($color, $color, $box-shadow-color);
+  } @else {
+    @error '#{$level} is not a valid level. Check level is of type string or not';
+  }
+}
