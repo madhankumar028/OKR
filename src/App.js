@@ -1,9 +1,9 @@
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div className="app">
+      <header className="header">
+        <p data-testid="okr__app--test" className="okr__app--wrapper">
+          OKR APP
         </p>
       </header>
     </div>
