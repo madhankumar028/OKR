@@ -1,0 +1,42 @@
+@import "../../styles/tokens/all";
+
+.accordion {
+  background: $color--white;
+  margin-bottom: $space--sm;
+  @include surface('2', null);
+  border-radius: $space--xs;
+
+  &__header {
+    background-color: transparent;
+    cursor: pointer;
+    padding: $space--sm;
+  }
+
+  &__title {
+    @include get-typography("lg", "medium");
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      @include get-typography("xs", "regular");
+    }
+  }
+
+  &__body {
+    @include get-typography("xs", "regular");
+    padding: 0 $space--sm;
+    line-height: 1.5;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &__show {
+    max-height: 500px !important;
+  }
+}
