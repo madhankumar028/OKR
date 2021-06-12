@@ -1,51 +1,57 @@
-@import './tokens/all';
+@import "./tokens/all";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 .heading-xs-r {
-	@include get-typography('xs', 'regular');
+  @include get-typography("xs", "regular");
 }
 .heading-xs-m {
-	@include get-typography('xs', 'medium');
+  @include get-typography("xs", "medium");
 }
 .heading-xs-b {
-	@include get-typography('xs', 'bold');
+  @include get-typography("xs", "bold");
 }
 
 .heading-sm-r {
-	@include get-typography('sm', 'regular');
+  @include get-typography("sm", "regular");
 }
 .heading-sm-m {
-	@include get-typography('sm', 'medium');
+  @include get-typography("sm", "medium");
 }
 .heading-sm-b {
-	@include get-typography('sm', 'bold');
+  @include get-typography("sm", "bold");
 }
 
 .heading-md-m {
-	@include get-typography('md', 'medium');
+  @include get-typography("md", "medium");
 }
 .heading-md-r {
-	@include get-typography('md', 'regular');
+  @include get-typography("md", "regular");
 }
 .heading-md-b {
-	@include get-typography('md', 'bold');
+  @include get-typography("md", "bold");
 }
 
 .heading-lg-m {
-	@include get-typography('lg', 'medium');
+  @include get-typography("lg", "medium");
 }
 .heading-lg-r {
-	@include get-typography('lg', 'regular');
+  @include get-typography("lg", "regular");
 }
 .heading-lg-b {
-	@include get-typography('lg', 'bold');
+  @include get-typography("lg", "bold");
 }
 
 .heading-xl-m {
-	@include get-typography('xl', 'medium');
+  @include get-typography("xl", "medium");
 }
 .heading-xl-r {
-	@include get-typography('xl', 'regular');
+  @include get-typography("xl", "regular");
 }
 .heading-xl-b {
-	@include get-typography('xl', 'bold');
+  @include get-typography("xl", "bold");
 }
