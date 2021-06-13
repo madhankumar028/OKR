@@ -24,8 +24,8 @@ export const Accordion = (props) => {
           className="accordion__title"
           onClick={() => setCollapse(!collapse)}
         >
-          <i
-            className={classNames('icon', collapse ? "arrow-up" : "arrow-down")}
+          <img
+            src={collapse ? "/expand_less.svg" : "/expand_more.svg"}
           />
           <div className="accordion__title">{title}</div>
         </div>
