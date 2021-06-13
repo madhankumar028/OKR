@@ -6,52 +6,43 @@
   padding: 0;
 }
 
-.heading-xs-r {
-  @include get-typography("xs", "regular");
-}
-.heading-xs-m {
-  @include get-typography("xs", "medium");
-}
-.heading-xs-b {
-  @include get-typography("xs", "bold");
+.okr__app--wrapper {
+  margin: 0 auto;
+  max-width: 50%;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: $space--sm;
+  }
+  header {
+    p {
+      margin: $space--sm 0;
+      @include get-typography("md", "medium");
+      color: $black--medium;
+    }
+  }
+  .okr__list--wrapper {
+    border-left: 1px solid $black--disabled;
+    position: relative;
+    margin-left: calc(#{$space--lg} - 4px);
+    li {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      padding-left: $space--lg;
+      margin-bottom: $space--sm;
+      color: $black--medium;
+      @include get-typography("sm", "medium");
+    }
+    li:before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      left: 0;
+      border: 1px solid $black--disabled;
+    }
+    li:nth-child(odd) {
+      background-color: $color-blue-10;
+    }
+  }
 }
 
-.heading-sm-r {
-  @include get-typography("sm", "regular");
-}
-.heading-sm-m {
-  @include get-typography("sm", "medium");
-}
-.heading-sm-b {
-  @include get-typography("sm", "bold");
-}
-
-.heading-md-m {
-  @include get-typography("md", "medium");
-}
-.heading-md-r {
-  @include get-typography("md", "regular");
-}
-.heading-md-b {
-  @include get-typography("md", "bold");
-}
-
-.heading-lg-m {
-  @include get-typography("lg", "medium");
-}
-.heading-lg-r {
-  @include get-typography("lg", "regular");
-}
-.heading-lg-b {
-  @include get-typography("lg", "bold");
-}
-
-.heading-xl-m {
-  @include get-typography("xl", "medium");
-}
-.heading-xl-r {
-  @include get-typography("xl", "regular");
-}
-.heading-xl-b {
-  @include get-typography("xl", "bold");
-}
