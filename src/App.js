@@ -10,6 +10,26 @@ function App() {
 
   const [parentObjective, setParentObjective] = React.useState([]);
   const [childObjective, setChildObjective] = React.useState([]);
+  const [categoryList, setCategoryList] = React.useState([]);
+  const [selectedFilter, setSelectedFilter] = React.useState();
+  const [filteredResult, setFilteredResult] = React.useState([]);
+
+  const filterHandler = (event) => {
+    event.persist();
+    setSelectedFilter(event.target.innerText);
+    setFilteredResult(parentObjective.filter(objective => objective.category === event.target.innerText));
+  };
+
+  const filterView = (filterList) => {
+    return filterList.map(filterItem => (
+      <button
+        className={`button ${selectedFilter === filterItem ? `active__filter` : ``}`}
+        onClick={filterHandler}
+      >
+        {filterItem}
+      </button>
+    ));
+  };
 
   const formatOKRList = (OKRList) => {
     setParentObjective(OKRList.filter(OKRItem => !OKRItem.parent_objective_id));
@@ -22,6 +42,13 @@ function App() {
   };
 
   React.useEffect(() => {
+    if (parentObjective.length) {
+      setFilteredResult([...parentObjective]);
+      setCategoryList(Array.from(new Set(parentObjective.map(objective => objective.category))));
+    }
+  }, [parentObjective]);
+
+  React.useEffect(() => {
     fetchOKRList();
   }, []);
 
@@ -29,11 +56,17 @@ function App() {
     <main className="okr__app--wrapper">
       <header className="header">
         <p data-testid="okr__app--test">OKR APP</p>
+        <div className="filter__group">
+          <span>Filters:</span>
+          {
+            categoryList.length > 0 && filterView(categoryList)
+          }
+        </div>
       </header>
       <section>
         {
-          parentObjective.length > 0 && (
-            parentObjective.map((objective, index) => (
+          filteredResult.length > 0 && (
+            filteredResult.map((objective, index) => (
               <Accordion title={`${index + 1}. ${objective.title}`} shouldOpen={index === 0} key={objective.id}>
                 <ol className="okr__list--wrapper">
                   {
