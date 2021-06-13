@@ -26,6 +26,7 @@ export const Accordion = (props) => {
         >
           <img
             src={collapse ? "/expand_less.svg" : "/expand_more.svg"}
+            alt="expand__icon"
           />
           <div className="accordion__title">{title}</div>
         </div>

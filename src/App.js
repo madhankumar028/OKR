@@ -36,11 +36,6 @@ function App() {
     setChildObjective(OKRList.filter(OKRItem => OKRItem.parent_objective_id));
   };
 
-  const fetchOKRList = async () => {
-    const { data } = await HTTPClient(`/database/db.json`);
-    formatOKRList(data);
-  };
-
   React.useEffect(() => {
     if (parentObjective.length) {
       setFilteredResult([...parentObjective]);
@@ -49,6 +44,10 @@ function App() {
   }, [parentObjective]);
 
   React.useEffect(() => {
+    const fetchOKRList = async () => {
+      const { data } = await HTTPClient(`/database/db.json`);
+      formatOKRList(data);
+    };
     fetchOKRList();
   }, []);
 
